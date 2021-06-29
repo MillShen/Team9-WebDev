@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<p>I. I love baked goods</p>
+
+
+<div class="slidecontainer">
+  <div class="row" id="valueContainer">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+<p>II. Sustainability is important to me</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer1">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange1" oninput="f1(this.value)">
+<p>Value: <span id="demo1"></span></p>
+</div>
+
+<script>
+  function f1(value) {
+      document.getElementById("demo1").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>III. I have things I want to trade</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer2">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange2" oninput="f2(this.value)">
+<p>Value: <span id="demo2"></span></p>
+</div>
+
+<script>
+  function f2(value) {
+      document.getElementById("demo2").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>IV. I value efficiency</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer3">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange3" oninput="f3(this.value)">
+<p>Value: <span id="demo3"></span></p>
+</div>
+
+<script>
+  function f3(value) {
+      document.getElementById("demo3").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>V. I care about accessibility</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer4">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange4" oninput="f4(this.value)">
+<p>Value: <span id="demo4"></span></p>
+</div>
+
+<script>
+  function f4(value) {
+      document.getElementById("demo4").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+<p>VI. Climate change is real</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer5">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange5" oninput="f5(this.value)">
+<p>Value: <span id="demo5"></span></p>
+</div>
+
+<script>
+  function f5(value) {
+      document.getElementById("demo5").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>VII. I love science</p>
+<div class="slidecontainer">
+  <div class="slidecontainer">
+    <div class="row" id="valueContainer6">
+        <div class="col" style="text-align:left">Strongly Disagree!</div>
+        <div class="col" style="text-align:center">Neutral</div>
+        <div class="col" style="text-align:right">Strongly Agree!</div>
+    </div>
+    <input type="range" min="1" max="5" value="50" class="slider" id="myRange6" oninput="f6(this.value)">
+<p>Value: <span id="demo6"></span></p>
+  </div>
+
+  <script>
+    function f6(value) {
+        document.getElementById("demo6").innerHTML = value
+    }
+  // var slider = document.getElementById("myRange1");
+  // var output = document.getElementById("demo1");
+  // output.innerHTML = slider.value;
+  //
+  // slider.oninput = function() {
+  //   output.innerHTML = this.value;
+  // }
+  </script>
+
+<p>VIII. I love supporting small businesses</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer7">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange7" oninput="f7(this.value)">
+<p>Value: <span id="demo7"></span></p>
+</div>
+
+<script>
+  function f7(value) {
+      document.getElementById("demo7").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>IX. I want to improve my business</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer8">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange8" oninput="f8(this.value)">
+<p>Value: <span id="demo8"></span></p>
+</div>
+
+<script>
+  function f8(value) {
+      document.getElementById("demo8").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+<p>X. I love a good map</p>
+<div class="slidecontainer">
+  <div class="row" id="valueContainer9">
+      <div class="col" style="text-align:left">Strongly Disagree!</div>
+      <div class="col" style="text-align:center">Neutral</div>
+      <div class="col" style="text-align:right">Strongly Agree!</div>
+  </div>
+  <input type="range" min="1" max="5" value="50" class="slider" id="myRange9" oninput="f9(this.value)">
+<p>Value: <span id="demo9"></span></p>
+</div>
+
+<script>
+  function f9(value) {
+      document.getElementById("demo9").innerHTML = value
+  }
+// var slider = document.getElementById("myRange1");
+// var output = document.getElementById("demo1");
+// output.innerHTML = slider.value;
+//
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+</script>
+
+</body>
+</html>
