@@ -49,4 +49,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/quiz", (request, response) => {
+  response.render("quiz");
+});
+
 module.exports = app;
