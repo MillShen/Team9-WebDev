@@ -16,7 +16,6 @@ mongoose.connect( 'mongodb://localhost/teamNine');
 var app = express();
 
 const BioInfo = require('./models/bioInfo');
-BioInfo.createCollection();
 
 async function populateData() {
     //Create Miranda bioInfo
@@ -25,6 +24,7 @@ async function populateData() {
       app_name: "Barter",
       about: "A trading app that allows users to connect and swap items to give them a new, loving home.",
       address: "https://morning-shelf-58124.herokuapp.com/",
+      img: "./images/barter.jpg",
       x: -2,
       y: 2
     });
@@ -35,6 +35,7 @@ async function populateData() {
       app_name: "Sim's Bakery",
       about: "A Website to purchase some delicious pastries from a small business!",
       address: "!Standin Address!",
+      img: "./images/bakery.jpg",
       x: 0,
       y: 0
     });
@@ -45,6 +46,7 @@ async function populateData() {
       app_name: "Climate Change App", //Maybe a name change
       about: "An app that compiles climate change data in an easy-to-understand nexus.",
       address: "!Standin Address!",
+      img: "./images/change.jpg",
       x: -2,
       y: -2
     });
@@ -55,6 +57,7 @@ async function populateData() {
       app_name: "Inventory Tracker", //Maybe a name change
       about: "Helps Businesses keep track of their stock and other crucial data",
       address: "!Standin Address!",
+      img: "./images/inventory.jpg",
       x: 2,
       y: 2
     });
@@ -65,6 +68,7 @@ async function populateData() {
       app_name: "Accessible Routing",
       about: "An app that will help you find wheelchair-friendly accessible routes in your area.",
       address: "!Standin Address!",
+      img: "./images/route.jpg",
       x: 2,
       y: -2
     });
@@ -75,7 +79,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', async function() {
   console.log("we are connected!!!")
-
   if (await BioInfo.countDocuments({}) == 0) {
     populateData();
   }

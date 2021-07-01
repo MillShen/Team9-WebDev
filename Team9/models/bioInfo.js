@@ -8,6 +8,7 @@ var bioInfoSchema = Schema( {
   app_name: String,
   about: String,
   address: String,
+  img: String,
   x: Number,
   y: Number
 });

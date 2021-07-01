@@ -1,4 +1,5 @@
 <%- include('bootheader') -%>
+<%- include('menubar', {variant: bios.name.split(" ")[0].toLowerCase()}) -%>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -8,8 +9,15 @@
     <title><%= bios.name %>'s website</title>
     <style>
       div {
-        margin: auto;
+        text-align: center;
       }
+
+      .img-container {
+        width: 800px;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
+
     </style>
   </head>
   <body>
@@ -18,6 +26,9 @@
         <h1>Welcome to <%= bios.name.split(" ")[0] %>'s about page</h1>
       </div>
       <div class="row">
+        <div class="img-container">
+          <img class="d-block" src=".<%= bios.img %>" width="500px">
+        </div>
         <h2><strong><%= bios.app_name %></strong></h2>
         <p><%= bios.about %></p>
       </div>

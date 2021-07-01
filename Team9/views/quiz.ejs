@@ -1,4 +1,5 @@
 <%- include('bootheader') -%>
+<%- include('menubar', {variant: 'quiz'}) -%>
 
 <!DOCTYPE html>
 <html>
@@ -66,6 +67,7 @@ output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
+  document.getElementById('x')
 }
 </script>
 
