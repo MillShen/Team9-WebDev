@@ -48,9 +48,22 @@ function populateData() {
     adharshInfo.save();
     var mattInfo = new BioInfo({
       name: "Matthew Merovitz",
-      app_name: "Stock Watch", //Maybe a name change
-      about: ""
+      app_name: "Inventory Tracker", //Maybe a name change
+      about: "Helps Businesses keep track of their stock and other crucial data",
+      address: "!Standin Address!",
+      x: 2,
+      y: 2
     });
+    mattInfo.save();
+    var millInfo = new BioInfo({
+      name: "Millan Shenoy",
+      app_name: "Accessible Routing",
+      about: "An app that will help you find wheelchair-friendly accessible routes in your area.",
+      address: "!Standin Address!",
+      x: 2,
+      y: -2
+    });
+    millInfo.save();
   }
 }
 
