@@ -43,12 +43,15 @@
   background: #04AA6D;
   cursor: pointer;
 }
+
+.num-holder {
+  visibility: hidden;
+}
 </style>
 </head>
 <body>
 
 <p>I. I love baked goods</p>
-
 
 <div class="slidecontainer">
   <div class="row" id="valueContainer">
@@ -56,19 +59,14 @@
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange">
-  <p>Value: <span id="demo"></span></p>
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange" oninput="f(this.value)">
+  <p>Value: <span id="demo">2</span></p>
 </div>
 
 <script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-  document.getElementById('x')
-}
+  function f(value) {
+    document.getElementById('demo').innerHTML = value;
+  }
 </script>
 
 <p>II. Sustainability is important to me</p>
@@ -79,7 +77,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange1" oninput="f1(this.value)">
-<p>Value: <span id="demo1"></span></p>
+<p>Value: <span id="demo1">2</span></p>
 </div>
 
 <script>
@@ -96,7 +94,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange2" oninput="f2(this.value)">
-<p>Value: <span id="demo2"></span></p>
+<p>Value: <span id="demo2">2</span></p>
 </div>
 
 <script>
@@ -113,7 +111,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange3" oninput="f3(this.value)">
-<p>Value: <span id="demo3"></span></p>
+<p>Value: <span id="demo3">2</span></p>
 </div>
 
 <script>
@@ -129,8 +127,8 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange4" oninput="f4(this.value)">
-<p>Value: <span id="demo4"></span></p>
+  <input type="range" min="-2" max="2" value="2" class="slider" id="myRange4" oninput="f4(this.value)">
+<p>Value: <span id="demo4">2</span></p>
 </div>
 
 <script>
@@ -147,7 +145,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange5" oninput="f5(this.value)">
-<p>Value: <span id="demo5"></span></p>
+<p>Value: <span id="demo5">2</span></p>
 </div>
 
 <script>
@@ -165,7 +163,7 @@ slider.oninput = function() {
         <div class="col" style="text-align:right">Strongly Agree!</div>
     </div>
     <input type="range" min="-2" max="2" value="50" class="slider" id="myRange6" oninput="f6(this.value)">
-<p>Value: <span id="demo6"></span></p>
+<p>Value: <span id="demo6">2</span></p>
   </div>
 
   <script>
@@ -182,7 +180,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange7" oninput="f7(this.value)">
-<p>Value: <span id="demo7"></span></p>
+<p>Value: <span id="demo7">2</span></p>
 </div>
 
 <script>
@@ -199,7 +197,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange8" oninput="f8(this.value)">
-<p>Value: <span id="demo8"></span></p>
+<p>Value: <span id="demo8">2</span></p>
 </div>
 
 <script>
@@ -216,7 +214,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
   <input type="range" min="-2" max="2" value="50" class="slider" id="myRange9" oninput="f9(this.value)">
-<p>Value: <span id="demo9"></span></p>
+<p>Value: <span id="demo9">2</span></p>
 </div>
 
 <script>
@@ -225,13 +223,78 @@ slider.oninput = function() {
   }
 </script>
 
-<form action="/quizresults" method="post">
-  <input type="hidden" name="x" value="0" id="x">
-  <input type="hidden" name="x" value="0" id="y">
+<form onsubmit="calcScore()" action="/quizresults" method="post">
+  <input class="num-holder" type="number" name="x" value="0" step=0.5 id="xVal">
+  <input class="num-holder" type="number" name="y" value="0" step=0.5 id="yVal">
   <div style="text-align:center;">
     <input type="submit" value="find your quiz results">
   </diy>
 </form>
+<script type="text/javascript">
+  function calcScore() {
+    const xVal = document.getElementById('xVal');
+    const yVal = document.getElementById('yVal');
+
+    let d = parseFloat(document.getElementById('demo').innerHTML); //baked goods
+    if (d == 2) {
+      xVal.value = parseFloat(xVal.value) + 0;
+      yVal.value = parseFloat(yVal.value) + 0;
+    } else if (d == 0) {
+      xVal.value = parseFloat(xVal.value) + 1;
+      yVal.value = parseFloat(yVal.value) + 1;
+    } else {
+      xVal.value = parseFloat(xVal.value) + (d/2);
+      yVal.value = parseFloat(yVal.value) + (d/2);
+    }
+
+    let d1 = parseFloat(document.getElementById('demo1').innerHTML); //sustainability
+    console.log(d1);
+    xVal.value = parseFloat(xVal.value) - (d1/2);
+    yVal.value = parseFloat(yVal.value) + (d1/2);
+
+    let d2 = parseFloat(document.getElementById('demo2').innerHTML); //trade
+    console.log(d2);
+    xVal.value = parseFloat(xVal.value) - (d2/2);
+    yVal.value = parseFloat(yVal.value) + (d2/2);
+
+    let d3 = parseFloat(document.getElementById('demo3').innerHTML); //efficiency
+    xVal.value = parseFloat(xVal.value) + (d3/2);
+    yVal.value = parseFloat(yVal.value) + (d3/2);
+
+    let d4 = parseFloat(document.getElementById('demo4').innerHTML); //accessibility
+    xVal.value = parseFloat(xVal.value) + (d4/2);
+    yVal.value = parseFloat(yVal.value) - (d4/2);
+
+    let d5 = parseFloat(document.getElementById('demo5').innerHTML); //climate change
+    xVal.value = parseFloat(xVal.value) - (d5/2);
+    yVal.value = parseFloat(yVal.value) - (d5/2);
+
+    let d6 = parseFloat(document.getElementById('demo6').innerHTML); //science
+    xVal.value = parseFloat(xVal.value) - (d6/2);
+    yVal.value = parseFloat(yVal.value) + (d6/2);
+
+    let d7 = parseFloat(document.getElementById('demo7').innerHTML); //small businesses
+    if (d7 == 2) {
+      xVal.value = parseFloat(xVal.value) + 0;
+      yVal.value = parseFloat(yVal.value) + 0;
+    } else if (d7 == 0) {
+      xVal.value = parseFloat(xVal.value) + 1;
+      yVal.value = parseFloat(yVal.value) + 1;
+    } else {
+      xVal.value = parseFloat(xVal.value) + (d7/2);
+      yVal.value = parseFloat(yVal.value) + (d7/2);
+    }
+
+    let d8 = parseFloat(document.getElementById('demo8').innerHTML); //business
+    xVal.value = parseFloat(xVal.value) + (d8/2);
+    yVal.value = parseFloat(yVal.value) + (d8/2);
+
+    let d9 = parseFloat(document.getElementById('demo9').innerHTML); //map
+    xVal.value = parseFloat(xVal.value) + (d9/2);
+    yVal.value = parseFloat(yVal.value) - (d9/2);
+    console.log(xVal.value + ", " + yVal.value)
+  }
+</script>
 
 </body>
 </html>

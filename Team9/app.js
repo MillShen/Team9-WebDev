@@ -56,7 +56,7 @@ async function populateData() {
       name: "Matthew Merovitz",
       app_name: "Inventory Tracker", //Maybe a name change
       about: "Helps Businesses keep track of their stock and other crucial data",
-      address: "!Standin Address!",
+      address: "https://red-poutine-00067.herokuapp.com/",
       img: "./images/inventory.jpg",
       x: 2,
       y: 2
@@ -102,6 +102,36 @@ app.get("/", async (req, res, next) => {
 
 app.get("/quiz", (request, response) => {
   response.render("quiz");
+});
+
+app.get('/quizresults', async (req, res, next) => {
+  res.render('quizresults')
+});
+app.post('/quizresults', async (req, res, next) => {
+  var x = parseFloat(req.body.x);
+  var y = parseFloat(req.body.y);
+  var nearest = [];
+  var distances = [];
+  var allBios = await BioInfo.find();
+  allBios.map((bio) => {
+    let diffX = Math.pow(bio.x - x, 2);
+    let diffY = Math.pow(bio.y - y, 2);
+    let temp = Math.sqrt(diffX + diffY);
+    distances.push(temp);
+  });
+  var lowestDistance = distances[0];
+  distances.forEach((dist) => {
+    if (dist < lowestDistance) {
+      lowestDistance = dist;
+    }
+  });
+  for (let i = 0; i < distances.length; i++) {
+    if (lowestDistance == distances[i]) {
+      nearest.push(allBios[i]);
+    }
+  }
+  res.locals.nearest = nearest;
+  res.render('quizresults');
 });
 
 module.exports = app;

@@ -39,23 +39,24 @@
         If you want to go to the quiz click <a href='/quiz'> here </a>
       </h3><hr>
     </div>
-    <div id="apps" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" onclick="location.href='/bios/<%= bios[0].name.split(" ")[0].toLowerCase() %>'">
+        <div class="carousel-item active">
           <div class="img-container">
             <img class="d-block" src=<%= bios[0].img %> alt=<%= bios[0].app_name %>>
           </div>
           <div class="carousel-caption d-none d-md-block">
-            <h4><%= bios[0].app_name %></h4>
+            <h4><a href="/bios/<%= bios[0].name.split(" ")[0].toLowerCase() %>"><%= bios[0].app_name %></a></h4>
             <p><%= bios[0].name %></p>
           </div>
+        </div>
         <% for (var i = 1; i < bios.length; i++) { %>
           <div class="carousel-item">
             <div class="img-container">
               <img class="d-block" src=<%= bios[i].img %> alt=<% bios[i].app_name %>>
             </div>
             <div class="carousel-caption d-none d-md-block">
-              <h4><%= bios[i].app_name %></h4>
+              <h4><a href="/bios/<%= bios[i].name.split(" ")[0].toLowerCase() %>"><%= bios[i].app_name %></a></h4>
               <p><%= bios[i].name %></p>
             </div>
           </div>
@@ -70,8 +71,10 @@
     </a>
     </div>
     <script type="text/javascript">
-      $('.carousel').carousel({
-        interval: 200
+      $(document).ready(function() {
+        $('.myCarousel').carousel({
+          interval: 500
+        })
       });
     </script>
 </body>
