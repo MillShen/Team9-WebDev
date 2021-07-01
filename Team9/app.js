@@ -14,6 +14,46 @@ mongoose.connect( 'mongodb://localhost/authDemo');
 //const mongoDB_URI = process.env.MONGODB_URI
 //mongoose.connect(mongoDB_URI)
 
+const BioInfo = require('./models/bioInfo');
+
+function populateData() {
+  if (BioInfo.count() == 0) {
+    //Create Miranda bioInfo
+    var mirInfo = new BioInfo({
+      name: "Miranda Sullivan",
+      app_name: "Barter",
+      about: "A trading app that allows users to connect and swap items to give them a new, loving home.",
+      address: "https://morning-shelf-58124.herokuapp.com/",
+      x: -2,
+      y: 2
+    });
+    mirInfo.save();
+    var stevenInfo = new BioInfo({
+      name: "Steven Hightower",
+      app_name: "Sim's Bakery",
+      about: "A Website to purchase some delicious pastries from a small business!",
+      address: "!Standin Address!",
+      x: 0,
+      y: 0
+    });
+    stevenInfo.save();
+    var adharshInfo = new BioInfo({
+      name: "Adharsh Ravi",
+      app_name: "Climate Change App", //Maybe a name change
+      about: "An app that compiles climate change data in an easy-to-understand nexus.",
+      address: "!Standin Address!",
+      x: -2,
+      y: -2
+    });
+    adharshInfo.save();
+    var mattInfo = new BioInfo({
+      name: "Matthew Merovitz",
+      app_name: "Stock Watch", //Maybe a name change
+      about: ""
+    });
+  }
+}
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
