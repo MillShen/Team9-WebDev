@@ -4,22 +4,23 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var biosRouter = require('./routes/bios');
 
-var app = express();
 const mongoose = require( 'mongoose' );
 //mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
-mongoose.connect( 'mongodb://localhost/authDemo');
-//const mongoDB_URI = process.env.MONGODB_URI
-//mongoose.connect(mongoDB_URI)
+mongoose.connect( 'mongodb://localhost/teamNine');
+// const mongoDB_URI = process.env.MONGODB_URI
+// mongoose.connect(mongoDB_URI)
+
+var app = express();
 
 const BioInfo = require('./models/bioInfo');
+BioInfo.createCollection();
 
-function populateData() {
-  if (BioInfo.count() == 0) {
+async function populateData() {
     //Create Miranda bioInfo
-    var mirInfo = new BioInfo({
+    const mirInfo = new BioInfo({
       name: "Miranda Sullivan",
       app_name: "Barter",
       about: "A trading app that allows users to connect and swap items to give them a new, loving home.",
@@ -27,7 +28,8 @@ function populateData() {
       x: -2,
       y: 2
     });
-    mirInfo.save();
+    await mirInfo.save();
+    //Create Steven bioInfo
     var stevenInfo = new BioInfo({
       name: "Steven Hightower",
       app_name: "Sim's Bakery",
@@ -36,7 +38,8 @@ function populateData() {
       x: 0,
       y: 0
     });
-    stevenInfo.save();
+    await stevenInfo.save();
+    //Create Adharsh bioInfo
     var adharshInfo = new BioInfo({
       name: "Adharsh Ravi",
       app_name: "Climate Change App", //Maybe a name change
@@ -45,7 +48,8 @@ function populateData() {
       x: -2,
       y: -2
     });
-    adharshInfo.save();
+    await adharshInfo.save();
+    //Create Matthew bioInfo
     var mattInfo = new BioInfo({
       name: "Matthew Merovitz",
       app_name: "Inventory Tracker", //Maybe a name change
@@ -54,7 +58,8 @@ function populateData() {
       x: 2,
       y: 2
     });
-    mattInfo.save();
+    await mattInfo.save();
+    //Create Millan bioInfo
     var millInfo = new BioInfo({
       name: "Millan Shenoy",
       app_name: "Accessible Routing",
@@ -63,14 +68,17 @@ function populateData() {
       x: 2,
       y: -2
     });
-    millInfo.save();
-  }
+    await millInfo.save();
 }
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', async function() {
   console.log("we are connected!!!")
+
+  if (await BioInfo.countDocuments({}) == 0) {
+    populateData();
+  }
 });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -81,10 +89,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(authRouter)
-app.use(loggingRouter);
-app.use('/', indexRouter);
+app.use('/bios', biosRouter);
 app.use('/users', usersRouter);
+
+app.get("/", async (req, res, next) => {
+  res.locals.bios = await BioInfo.find({});
+  res.render("index");
+});
+
+app.get("/quiz", (request, response) => {
+  response.render("quiz");
+});
+
+module.exports = app;
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -101,13 +118,3 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/quiz", (request, response) => {
-  response.render("quiz");
-});
-
-module.exports = app;

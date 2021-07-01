@@ -1,20 +1,76 @@
 <%- include('bootheader') -%>
 
-<div class="jumbotron">
   <head>
     <title> Team 9's Website </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> Welcome to our website! </h1>
-    <p>Our group members, Adharsh, Millan, Matthew, Steven, and Miranda, have all
-      made websites this semester for COSI152a! For our group website, we created a
-       quiz that will tell you who's website to go to. Feel free to explore
-       all of the websites too! %></p><hr>
+    <style>
+      img {
+        max-width: 100%;
+      }
 
-    <p> If you want to go to the quiz click <a href='/quiz'> here </a> </p>
-  </body>
+      .img-container {
+        max-width: 100%;
+        width: 800px;
+        margin: auto;
+        border-radius: 10px;
+      }
 
-
-</div>
-
+      .img-container::after {
+        display: block;
+        position: relative;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #000 100%);
+        margin-top: -150px;
+        height: 150px;
+        width: 100%;
+        content: '';
+    }
+  </style>
+</head>
+<body>
+    <div class="jumbotron" style="text-align: center;">
+      <h1> Welcome to our website! </h1>
+      <p>
+        Our group members, Adharsh, Millan, Matthew, Steven, and Miranda, have all
+        made websites this semester for COSI152a! For our group website, we created a
+        quiz that will tell you who's website to go to. Feel free to explore
+        all of the websites too!
+      </p><br>
+      <h3>
+        If you want to go to the quiz click <a href='/quiz'> here </a>
+      </h3><hr>
+    </div>
+    <div id="apps" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="img-container">
+            <img class="d-block" src="./images/bakery.jpg" alt="First slide">
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Bakery!</h4>
+            <p>SOmething</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="img-container">
+            <img class="d-block" src=".'images/barter.jpg'" alt="Second slide">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block" src="" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+    </div>
+    <script type="text/javascript">
+      $('.carousel').carousel({
+        interval: 200
+      });
+    </script>
+</body>

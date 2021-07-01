@@ -1,0 +1,31 @@
+<%- include('bootheader') -%>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title><%= bios.name %>'s website</title>
+    <style>
+      div {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" style="width:100%">
+      <div class="jumbotron">
+        <h1>Welcome to <%= bios.name.split(" ")[0] %>'s about page</h1>
+      </div>
+      <div class="row">
+        <h2><strong><%= bios.app_name %></strong></h2>
+        <p><%= bios.about %></p>
+      </div>
+      <div class="row">
+        <p>
+          Visit it <a href="<%= bios.address %>">here!</a> (Note, some apps may not have been deployed fully)
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

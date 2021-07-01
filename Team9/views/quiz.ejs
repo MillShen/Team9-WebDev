@@ -1,3 +1,4 @@
+<%- include('bootheader') -%>
 
 <!DOCTYPE html>
 <html>
@@ -54,7 +55,7 @@
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange">
   <p>Value: <span id="demo"></span></p>
 </div>
 
@@ -75,7 +76,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange1" oninput="f1(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange1" oninput="f1(this.value)">
 <p>Value: <span id="demo1"></span></p>
 </div>
 
@@ -83,13 +84,6 @@ slider.oninput = function() {
   function f1(value) {
       document.getElementById("demo1").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>III. I have things I want to trade</p>
@@ -99,7 +93,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange2" oninput="f2(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange2" oninput="f2(this.value)">
 <p>Value: <span id="demo2"></span></p>
 </div>
 
@@ -107,13 +101,6 @@ slider.oninput = function() {
   function f2(value) {
       document.getElementById("demo2").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>IV. I value efficiency</p>
@@ -123,7 +110,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange3" oninput="f3(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange3" oninput="f3(this.value)">
 <p>Value: <span id="demo3"></span></p>
 </div>
 
@@ -131,13 +118,6 @@ slider.oninput = function() {
   function f3(value) {
       document.getElementById("demo3").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>V. I care about accessibility</p>
@@ -147,7 +127,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange4" oninput="f4(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange4" oninput="f4(this.value)">
 <p>Value: <span id="demo4"></span></p>
 </div>
 
@@ -155,14 +135,8 @@ slider.oninput = function() {
   function f4(value) {
       document.getElementById("demo4").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
+
 <p>VI. Climate change is real</p>
 <div class="slidecontainer">
   <div class="row" id="valueContainer5">
@@ -170,7 +144,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange5" oninput="f5(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange5" oninput="f5(this.value)">
 <p>Value: <span id="demo5"></span></p>
 </div>
 
@@ -178,13 +152,6 @@ slider.oninput = function() {
   function f5(value) {
       document.getElementById("demo5").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>VII. I love science</p>
@@ -195,7 +162,7 @@ slider.oninput = function() {
         <div class="col" style="text-align:center">Neutral</div>
         <div class="col" style="text-align:right">Strongly Agree!</div>
     </div>
-    <input type="range" min="1" max="5" value="50" class="slider" id="myRange6" oninput="f6(this.value)">
+    <input type="range" min="-2" max="2" value="50" class="slider" id="myRange6" oninput="f6(this.value)">
 <p>Value: <span id="demo6"></span></p>
   </div>
 
@@ -203,13 +170,6 @@ slider.oninput = function() {
     function f6(value) {
         document.getElementById("demo6").innerHTML = value
     }
-  // var slider = document.getElementById("myRange1");
-  // var output = document.getElementById("demo1");
-  // output.innerHTML = slider.value;
-  //
-  // slider.oninput = function() {
-  //   output.innerHTML = this.value;
-  // }
   </script>
 
 <p>VIII. I love supporting small businesses</p>
@@ -219,7 +179,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange7" oninput="f7(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange7" oninput="f7(this.value)">
 <p>Value: <span id="demo7"></span></p>
 </div>
 
@@ -227,13 +187,6 @@ slider.oninput = function() {
   function f7(value) {
       document.getElementById("demo7").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>IX. I want to improve my business</p>
@@ -243,7 +196,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange8" oninput="f8(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange8" oninput="f8(this.value)">
 <p>Value: <span id="demo8"></span></p>
 </div>
 
@@ -251,13 +204,6 @@ slider.oninput = function() {
   function f8(value) {
       document.getElementById("demo8").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
 
 <p>X. I love a good map</p>
@@ -267,7 +213,7 @@ slider.oninput = function() {
       <div class="col" style="text-align:center">Neutral</div>
       <div class="col" style="text-align:right">Strongly Agree!</div>
   </div>
-  <input type="range" min="1" max="5" value="50" class="slider" id="myRange9" oninput="f9(this.value)">
+  <input type="range" min="-2" max="2" value="50" class="slider" id="myRange9" oninput="f9(this.value)">
 <p>Value: <span id="demo9"></span></p>
 </div>
 
@@ -275,14 +221,15 @@ slider.oninput = function() {
   function f9(value) {
       document.getElementById("demo9").innerHTML = value
   }
-// var slider = document.getElementById("myRange1");
-// var output = document.getElementById("demo1");
-// output.innerHTML = slider.value;
-//
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
 </script>
+
+<form action="/quizresults" method="post">
+  <input type="hidden" name="x" value="0" id="x">
+  <input type="hidden" name="x" value="0" id="y">
+  <div style="text-align:center;">
+    <input type="submit" value="find your quiz results">
+  </diy>
+</form>
 
 </body>
 </html>
